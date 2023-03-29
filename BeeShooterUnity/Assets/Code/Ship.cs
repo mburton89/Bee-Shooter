@@ -13,6 +13,8 @@ public class Ship : MonoBehaviour
     public int maxArmor;
     public float fireRate;
     public float projectileSpeed;
+    public int currentAmmo;
+    public int MaxAmmo;
 
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
