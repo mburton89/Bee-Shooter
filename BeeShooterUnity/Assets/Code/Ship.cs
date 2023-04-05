@@ -39,6 +39,8 @@ public class Ship : MonoBehaviour
     {
         rigidbody2D.AddForce(transform.up * acceleration);
         thrustParticles.Emit(1);
+
+
     }
     public void FireProjectile()
     {
