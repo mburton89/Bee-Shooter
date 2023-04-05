@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BeeSpawner : MonoBehaviour
 {
+    public List<EnemyShip> enemyBeeBeefabs;
+
     public float numberOfBeesToSpawn;
     bool hasSpawnedBees;
+
+    public float secondsBeetweenBeeSpawns;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,27 +22,19 @@ public class BeeSpawner : MonoBehaviour
     public void SpawnRoboBees()
     {
         print("SpawnBees");
-
         hasSpawnedBees = true;
+        StartCoroutine(SpawnWaveOfBees());
+    }
 
-        numberOfBeesToSpawn--;
-
+    private IEnumerator SpawnWaveOfBees()
+    {
         for (int i = 0; i < numberOfBeesToSpawn; i++)
         {
-
+            int rand = Random.Range(0, enemyBeeBeefabs.Count);
+            Instantiate(enemyBeeBeefabs[rand], transform.position, transform.rotation, null);
+            yield return new WaitForSeconds(secondsBeetweenBeeSpawns);
         }
+
+        Destroy(gameObject);
     }
-
-    public void CheckNumberOfBeesLeft()
-    {
-        print(numberOfBeesToSpawn);
-
-        if (numberOfBeesToSpawn > 0)
-        {
-            SpawnRoboBees();
-        }
-    }
-
-
-
 }

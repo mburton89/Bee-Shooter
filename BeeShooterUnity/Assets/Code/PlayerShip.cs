@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerShip : Ship
 {
+    public Animator animator;
+    public float idleAnimationSpeed;
+    public float flyingAnimationSpeed;
+
     void Update()
     {
         FollowMouse();
@@ -15,7 +19,13 @@ public class PlayerShip : Ship
         if (Input.GetMouseButton(1))
         {
             Thrust();
+            animator.speed = flyingAnimationSpeed;
         }
+        else
+        {
+            animator.speed = idleAnimationSpeed;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             FireProjectile();
