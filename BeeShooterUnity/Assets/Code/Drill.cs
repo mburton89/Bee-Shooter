@@ -7,8 +7,11 @@ public class Drill : MonoBehaviour
 {
     public float distanceToMoveOut;
     public float secondsToMoveOut;
-    public float secondsToPause;
+    public float secondsToPauseIn;
+    public float secondsToPauseOut;
     public float secondsToMoveIn;
+
+    public float secondsToDelay;
 
     float initialYPosition;
 
@@ -20,11 +23,15 @@ public class Drill : MonoBehaviour
 
     private IEnumerator Animate()
     {
+        yield return new WaitForSeconds(secondsToDelay);
+        secondsToDelay = 0;
+
         transform.DOLocalMoveY(initialYPosition + distanceToMoveOut, secondsToMoveOut, false);
         yield return new WaitForSeconds(secondsToMoveOut);
-        yield return new WaitForSeconds(secondsToPause);
+        yield return new WaitForSeconds(secondsToPauseIn);
         transform.DOLocalMoveY(initialYPosition, secondsToMoveIn, false);
         yield return new WaitForSeconds(secondsToMoveIn);
+        yield return new WaitForSeconds(secondsToPauseOut);
         StartCoroutine(Animate());
     }
 }
