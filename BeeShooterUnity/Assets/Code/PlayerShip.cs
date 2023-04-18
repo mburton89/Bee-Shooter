@@ -19,6 +19,9 @@ public class PlayerShip : Ship
         if (Input.GetMouseButtonDown(0))
         {
             FireProjectile();
+
+
+            
         }
     }
     void FollowMouse()
