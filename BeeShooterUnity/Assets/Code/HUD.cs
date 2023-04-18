@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public static HUD instance;
+    public static HUD Instance { get; private set; }
     public TextMeshProUGUI waveText;
     public Image healthBarFill;
     public Image ammoFill;
@@ -14,7 +14,7 @@ public class HUD : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
     public void DisplayHealth(int currentArmor, int MaxArmor)
     {

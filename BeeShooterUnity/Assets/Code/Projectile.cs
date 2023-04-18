@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int DamageToGive;
+    public int damageToGive;
     [HideInInspector]public GameObject firingShip;
 
     public AudioClip tic;
@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
         {
-            collision.GetComponent<Ship>().TakeDamage(DamageToGive);
+            collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(tic, Camera.main.transform.position);
         }

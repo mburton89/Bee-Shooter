@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
         if (numberofEnemyShips == 1)
         {
             currentWave+= 1;
-            HUD.instance.DisplayWave(currentWave);
+            HUD.Instance.DisplayWave(currentWave);
             SpawnEnemies();
         }
     }

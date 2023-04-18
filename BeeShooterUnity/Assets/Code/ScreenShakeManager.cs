@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class screenShakeManager : MonoBehaviour
+public class ScreenShakeManager : MonoBehaviour
 {
-    public static screenShakeManager Instance;
+    public static ScreenShakeManager Instance;
     public float duration;
     public float strength;
     public int vibrato;

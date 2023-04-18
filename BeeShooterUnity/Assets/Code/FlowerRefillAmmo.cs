@@ -34,7 +34,7 @@ public class FlowerRefillAmmo : MonoBehaviour
         {
             print("Refill for loop");
             playerShip.currentAmmo += 1;
-            HUD.instance.DisplayAmmo(playerShip.currentAmmo, playerShip.maxAmmo);
+            HUD.Instance.DisplayAmmo(playerShip.currentAmmo, playerShip.maxAmmo);
             yield return new WaitForSeconds(1);
         }
     }

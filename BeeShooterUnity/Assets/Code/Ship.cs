@@ -13,15 +13,9 @@ public class Ship : MonoBehaviour
     public int maxArmor;
     public float fireRate;
     public float projectileSpeed;
-<<<<<<< Updated upstream
-    public int currentAmmo;
-    public int MaxAmmo;
-=======
     public int currentAmmo = 10;
     public int maxAmmo;
     public int refillAmount;
-
->>>>>>> Stashed changes
 
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
@@ -59,7 +53,7 @@ public class Ship : MonoBehaviour
             projectile.GetComponent<Projectile>().firingShip = gameObject;
             if (GetComponent<PlayerShip>())
             {
-                HUD.instance.DisplayAmmo(currentAmmo, maxAmmo);
+                HUD.Instance.DisplayAmmo(currentAmmo, maxAmmo);
             }
             Destroy(projectile, 4);
             StartCoroutine(FireRateBuffer());
@@ -84,13 +78,13 @@ public class Ship : MonoBehaviour
         }
         if(GetComponent<PlayerShip>())
         {
-            HUD.instance.DisplayHealth(currentArmor, maxArmor);
+            HUD.Instance.DisplayHealth(currentArmor, maxArmor);
         }
     }
     public void Explode()
     {// todo: Make particle effects
         Instantiate(Resources.Load("BOOM BOOM"), transform.position, transform.rotation);
-        screenShakeManager.Instance.ShakeScreen();
+        ScreenShakeManager.Instance.ShakeScreen();
         FindObjectOfType<EnemySpawner>().CountEnemyShips();
         Destroy(gameObject);
 
