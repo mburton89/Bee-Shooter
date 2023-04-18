@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class starSpawner : MonoBehaviour
+public class StarSpawner : MonoBehaviour
 {
     public GameObject starPrefab;
     public int numberOfStarsToSpawn;

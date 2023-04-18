@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Ship : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     public GameObject projectilePrefab;
     public Transform projectileSpawnpoint;
 
@@ -29,6 +30,8 @@ public class Ship : MonoBehaviour
         currentAmmo = maxAmmo;
         thrustParticles = GetComponentInChildren<ParticleSystem>();
         canBangBang = true;
+
+        rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {

@@ -544,6 +544,10 @@ public enum SoundName
     EnemyHit = 10,
     DrillDestroyed = 11,
     OtherExplosion = 12,
+
+    UIConfirm = 101,
+    UISelection = 102,
+
     MainBGM = 1001,
     TitleBGM = 1002,
     DrillEngaged = 1003,

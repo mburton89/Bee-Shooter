@@ -1157,33 +1157,41 @@ MonoBehaviour:
   isIntro: 0
   postIntroIdentifier: 0
   bgmLibrary:
-  - soundName: 13
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+  - soundName: 1001
+    audioClip: {fileID: 8300000, guid: cfe2cd84ba433f4488e19a5fd5e63e6f, type: 3}
+  - soundName: 1002
+    audioClip: {fileID: 8300000, guid: b1f7c3d193748ab489b43f1dd0fda3ab, type: 3}
+  - soundName: 1003
+    audioClip: {fileID: 8300000, guid: 069b2ac1ed709984f9551e362ee21f39, type: 3}
+  - soundName: 1004
+    audioClip: {fileID: 8300000, guid: 9b9ea458eebd36a4fb5aaab5fbe33974, type: 3}
   sfxLibrary:
   - soundName: 0
     audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
   - soundName: 1
     audioClip: {fileID: 8300000, guid: 0174b5cab37e9774da950e814d189327, type: 3}
   - soundName: 2
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 3
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 4
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 5
     audioClip: {fileID: 8300000, guid: a0c6a22b59cbd5e488fb1464714c9645, type: 3}
-  - soundName: 6
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
   - soundName: 7
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 8
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 9
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 10
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 11
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
   - soundName: 12
-    audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
+    audioClip: {fileID: 0}
+  - soundName: 101
+    audioClip: {fileID: 8300000, guid: d72ba4ea40ef1584fbc3b7011623855d, type: 3}
+  - soundName: 102
+    audioClip: {fileID: 8300000, guid: 0690e226b71b11f469f32ddf92aa2dc5, type: 3}
   narrationLibrary: []
