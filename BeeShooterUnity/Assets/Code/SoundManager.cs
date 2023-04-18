@@ -545,7 +545,7 @@ public enum SoundName
     DrillDestroyed = 11,
     OtherExplosion = 12,
     MainBGM = 1001,
-    BGMLayer1 = 1002,
-    BGMLayer2 = 1003,
-    BGMLayer3 = 1004,
+    TitleBGM = 1002,
+    DrillEngaged = 1003,
+    DrillEngagedDistorted = 1004,
 }
