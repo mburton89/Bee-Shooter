@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int damageToGive;
-    GameObject firingShip;
+    public int DamageToGive;
+    [HideInInspector]public GameObject firingShip;
 
+    public AudioClip tic;
+
+    void Awake()
+    {
+        GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
         {
-            collision.GetComponent<Ship>().TakeDamage(damageToGive);
+            collision.GetComponent<Ship>().TakeDamage(DamageToGive);
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(tic, Camera.main.transform.position);
         }
 
         if (collision.GetComponent<Health>())
@@ -21,9 +28,5 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void GetFired(GameObject firer)
-    {
-        firingShip = firer;
-    }
 }
+
