@@ -6,11 +6,14 @@ public class Projectile : MonoBehaviour
 {
     public int damageToGive;
     [HideInInspector]public GameObject firingShip;
+    public SoundName soundOnFire;
+    public SoundName soundOnHit;
 
     void Awake()
     {
-        GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+        SoundManager.Instance.PlaySFXOnce(soundOnFire, transform.position);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
@@ -18,7 +21,7 @@ public class Projectile : MonoBehaviour
             collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);
 
-            SoundManager.Instance.PlaySFXOnce(SoundName.EnemyHit);
+            SoundManager.Instance.PlaySFXOnce(soundOnHit, transform.position);
 
         }
 

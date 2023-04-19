@@ -4944,7 +4944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageToGive: 1
   firingShip: {fileID: 0}
-  tic: {fileID: 0}
+  soundOnFire: 1
+  soundOnHit: 10
 --- !u!58 &1565125176679942561
 CircleCollider2D:
   m_ObjectHideFlags: 0
