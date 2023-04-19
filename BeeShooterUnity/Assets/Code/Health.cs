@@ -31,14 +31,14 @@ public class Health : MonoBehaviour
 
     public void Flash()
     {
-        StartCoroutine(FlashCo());
+            StartCoroutine(FlashCo());
     }
 
     private IEnumerator FlashCo()
     {
-        spriteRenderer.material = whiteMaterial;
-        yield return new WaitForSeconds(.02f);
-        spriteRenderer.material = initialMaterial;
+        spriteRenderer.color = new Color(.42f, .14f, .78f);
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
     }
 
     public void Explode()
