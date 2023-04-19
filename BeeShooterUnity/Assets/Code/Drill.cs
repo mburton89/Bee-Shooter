@@ -15,6 +15,10 @@ public class Drill : MonoBehaviour
 
     float initialYPosition;
 
+    public float drillDamagedMusicDistortTime = 1.25f;
+    bool isMusicDistorted = false;
+
+
     void Start()
     {
         initialYPosition = transform.localPosition.y;
@@ -34,4 +38,32 @@ public class Drill : MonoBehaviour
         yield return new WaitForSeconds(secondsToPauseOut);
         StartCoroutine(Animate());
     }
+
+
+    //call when drill damaged
+    public void HandleMusic()
+    {
+        if (!isMusicDistorted)
+        {
+            StartCoroutine(DistortMusic());
+        }
+    }
+
+    private IEnumerator DistortMusic()
+    {
+        if (SoundManager.Instance.GetCurrentBGMSoundName() == SoundName.DrillEngaged)
+        {
+            isMusicDistorted = true;
+
+            SoundManager.Instance.PlayMainMusic(SoundName.DrillEngagedDistorted, false, true);
+
+            yield return new WaitForSeconds(drillDamagedMusicDistortTime);
+
+            SoundManager.Instance.PlayMainMusic(SoundName.DrillEngaged, false, true);
+
+        }
+        isMusicDistorted = false;
+    }
+
+
 }

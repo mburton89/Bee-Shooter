@@ -1149,7 +1149,7 @@ MonoBehaviour:
   bgmVolume: 100
   narrationVolume: 100
   sfxVolumeMultiplier: 1
-  fadeTime: 0.5
+  fadeTime: 2
   minMusicPlayDuration: 2
   isSound3D: 1
   usePositionalVolume: 1
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   - soundName: 2
     audioClip: {fileID: 0}
   - soundName: 3
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 4b710bf852590d34f90fa2fd4aeaeff0, type: 3}
   - soundName: 4
     audioClip: {fileID: 0}
   - soundName: 5
