@@ -11,12 +11,13 @@ public class ScreenShakeManager : MonoBehaviour
     public int vibrato;
     public float randomness;
 
+
     private void Awake()
     {
         Instance = this;
     }
 
-    public void ShakeScreen()
+    public void ShakeScreen ()
     {
         transform.DOShakePosition(duration, strength, vibrato, randomness, false, true);
     }

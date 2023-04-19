@@ -8,13 +8,10 @@ public class Health : MonoBehaviour
     [HideInInspector] public int currentHealth;
 
     SpriteRenderer spriteRenderer;
-    Material initialMaterial;
-    [SerializeField] Material whiteMaterial;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        initialMaterial = spriteRenderer.material;
         currentHealth = maxHealth;
     }
 
@@ -26,6 +23,14 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Explode();
+        }
+        else
+        {
+            Drill drill = GetComponent<Drill>();
+            if (drill != null)
+            {
+                drill.HandleMusic();
+            }
         }
     }
 
