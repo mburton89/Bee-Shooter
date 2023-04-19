@@ -14419,6 +14419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1808664101}
+  - component: {fileID: 1808664102}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -14442,6 +14443,23 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808664102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808664100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c97b738f8a593247b4ab780192e33ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyShipPrefabs: []
+  spawnPoint: {fileID: 518798322}
+  spawnPivot: {fileID: 628169312}
+  currentWave: 1
+  startingNumberOfShips: 0
 --- !u!1 &1811633746
 GameObject:
   m_ObjectHideFlags: 0
