@@ -17,7 +17,9 @@ public class Projectile : MonoBehaviour
         {
             collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);
+
             SoundManager.Instance.PlaySFXOnce(SoundName.EnemyHit);
+
         }
 
         if (collision.GetComponent<Health>())
