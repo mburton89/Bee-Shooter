@@ -15,7 +15,7 @@ public class Drill : MonoBehaviour
 
     float initialYPosition;
 
-    public float drillDamagedMusicDistortTime = 1.25f;
+    public float drillDamagedMusicDistortTime = .5f;
     bool isMusicDistorted = false;
 
 
@@ -54,6 +54,8 @@ public class Drill : MonoBehaviour
         if (SoundManager.Instance.GetCurrentBGMSoundName() == SoundName.DrillEngaged)
         {
             isMusicDistorted = true;
+
+            float cur = Time.time;
 
             SoundManager.Instance.PlayMainMusic(SoundName.DrillEngagedDistorted, false, true);
 

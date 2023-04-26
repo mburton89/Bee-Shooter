@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageToTake;
         Flash();
+        
 
         if (currentHealth <= 0)
         {
@@ -28,8 +29,14 @@ public class Health : MonoBehaviour
         {
             Drill drill = GetComponent<Drill>();
             if (drill != null)
-            {
+            {   
                 drill.HandleMusic();
+            }
+
+            DrillBase drillBase = GetComponent<DrillBase>();
+            if (drillBase != null)
+            {
+                drillBase.HandleMusic();
             }
         }
     }

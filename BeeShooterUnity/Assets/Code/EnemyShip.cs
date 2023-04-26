@@ -28,7 +28,7 @@ public class EnemyShip : Ship
 
         float distanceFromTarget = Vector3.Distance(transform.position, target.transform.position);
 
-        print(distanceFromTarget);
+        //print(distanceFromTarget);
 
         if (distanceFromTarget < sightDistance)
         {

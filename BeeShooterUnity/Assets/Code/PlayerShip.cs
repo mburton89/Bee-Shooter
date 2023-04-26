@@ -61,7 +61,7 @@ public class PlayerShip : Ship
             }
         }
 
-        wasBattleMusicPlayingLastFrame = SoundManager.Instance.GetCurrentBGMSoundName() == SoundName.DrillEngaged;
+        wasBattleMusicPlayingLastFrame = SoundManager.Instance.GetCurrentBGMSoundName() == SoundName.DrillEngaged || SoundManager.Instance.GetCurrentBGMSoundName() == SoundName.DrillEngagedDistorted;
     }
 
 }
