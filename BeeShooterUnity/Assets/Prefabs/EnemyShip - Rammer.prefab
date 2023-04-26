@@ -375,6 +375,7 @@ MonoBehaviour:
   currentSpeed: 0
   currentArmor: 0
   canBangBang: 0
+  sightDistance: 10
 --- !u!70 &592441305
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -5087,13 +5087,14 @@ MonoBehaviour:
   maxSpeed: 6
   maxArmor: 3
   fireRate: 1
-  projectileSpeed: 125
+  projectileSpeed: 160
   currentAmmo: 10000000
   maxAmmo: 10000000
   refillAmount: 0
   currentSpeed: 0
   currentArmor: 0
   canBangBang: 1
+  sightDistance: 10
 --- !u!70 &663575724
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
