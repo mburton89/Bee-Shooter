@@ -61,9 +61,6 @@ public class Ship : MonoBehaviour
             Destroy(projectile, 4);
             StartCoroutine(FireRateBuffer());
         }
-      
-        
-
     }
     private IEnumerator FireRateBuffer()
     {
@@ -96,8 +93,6 @@ public class Ship : MonoBehaviour
             GameManager.Instance.GameOver();
         }
  
-    }
-
- 
-    }
+    } 
+}
 
