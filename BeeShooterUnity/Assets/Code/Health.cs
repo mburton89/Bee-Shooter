@@ -52,6 +52,6 @@ public class Health : MonoBehaviour
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
         Destroy(gameObject);
 
-        FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
+        //FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
     }
 }

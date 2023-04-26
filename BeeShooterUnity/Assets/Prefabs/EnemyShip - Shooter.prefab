@@ -5093,7 +5093,7 @@ MonoBehaviour:
   refillAmount: 0
   currentSpeed: 0
   currentArmor: 0
-  canBangBang: 0
+  canBangBang: 1
 --- !u!70 &663575724
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
