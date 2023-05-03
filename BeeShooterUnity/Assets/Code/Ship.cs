@@ -71,28 +71,70 @@ public class Ship : MonoBehaviour
     }
     public void TakeDamage(int DamageToGive)
     {
+        List<SoundName> hitSounds = new List<SoundName>();
+
         currentArmor -= DamageToGive;
         if (currentArmor <= 0)
         {
+            if (this.GetType() == typeof(PlayerShip))
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.PlayerDies);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.EnemyDies);
+            }
+
             Explode();
         }
+        
+
         if(GetComponent<PlayerShip>())
         {
             HUD.Instance.DisplayHealth(currentArmor, maxArmor);
+
+            hitSounds.Add(SoundName.PlayerHit1);
+            hitSounds.Add(SoundName.PlayerHit2);
+            hitSounds.Add(SoundName.PlayerHit3);
         }
+        else
+        {
+            hitSounds.Add(SoundName.EnemyHit1);
+            hitSounds.Add(SoundName.EnemyHit2);
+        }
+
+        SoundManager.Instance.PlaySFXOnce(hitSounds[Random.Range(0, hitSounds.Count)]);
     }
     public void Explode()
     {// todo: Make particle effects
         Instantiate(Resources.Load("BOOM BOOM"), transform.position, transform.rotation);
         ScreenShakeManager.Instance.ShakeScreen();
         //FindObjectOfType<EnemySpawner>().CountEnemyShips();
-        Destroy(gameObject);
+        
 
         if (GetComponent<PlayerShip>())
         {
-            GameManager.Instance.GameOver();
+            StartCoroutine(DelayGameOver());
+        }
+        else
+        {
+            Destroy(gameObject);
         }
  
-    } 
+    }
+
+    IEnumerator DelayGameOver()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<PlayerShip>().enabled = false;
+
+        AudioClip clip = SoundManager.Instance.GetBGMClip(SoundName.PlayerDies);
+        SoundManager.Instance.PlayMainMusic(SoundName.PlayerDies);
+
+        yield return new WaitForSeconds(clip.length + 1f);
+
+        GameManager.Instance.GameOver();
+    }
+
 }
 

@@ -35,6 +35,7 @@ public class PlayerShip : Ship
 
         if (Input.GetMouseButtonDown(0))
         {
+            SoundManager.Instance.PlaySFXOnce(SoundName.EnemyShoot);
             BangBang();
         }
         

@@ -27,6 +27,8 @@ public class Drill : MonoBehaviour
 
     private IEnumerator Animate()
     {
+        SoundManager.Instance.PlaySFXOnce(SoundName.DrillAmbient);
+
         yield return new WaitForSeconds(secondsToDelay);
         secondsToDelay = 0;
 
