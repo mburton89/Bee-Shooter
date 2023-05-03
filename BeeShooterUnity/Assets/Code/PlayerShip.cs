@@ -7,7 +7,7 @@ public class PlayerShip : Ship
     bool wasBattleMusicPlayingLastFrame;
     public float battleMusicProximity;
     public string battleMusicObjectTag;
-
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -18,12 +18,22 @@ public class PlayerShip : Ship
     }
     void HandleInput()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.speed *= 2;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            animator.speed *= 0.5f;
+        }
+
         if (Input.GetMouseButton(1))
         {
             Thrust();
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             BangBang();
         }
