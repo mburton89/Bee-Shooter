@@ -19,21 +19,33 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageToTake;
         Flash();
-        
+
+        Drill drill = GetComponent<Drill>();
+        DrillBase drillBase = GetComponent<DrillBase>();
+
 
         if (currentHealth <= 0)
         {
+            if (drill != null || drillBase != null)
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.DrillDestroyed);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.ClawExplosion);
+            }
+
             Explode();
+
         }
         else
         {
-            Drill drill = GetComponent<Drill>();
             if (drill != null)
             {   
                 drill.HandleMusic();
             }
 
-            DrillBase drillBase = GetComponent<DrillBase>();
+            
             if (drillBase != null)
             {
                 drillBase.HandleMusic();

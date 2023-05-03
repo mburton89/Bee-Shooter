@@ -35,6 +35,7 @@ public class EnemyShip : Ship
             FlyForwardTarget();
             if (canBangBang)
             {
+                SoundManager.Instance.PlaySFXOnce(SoundName.EnemyShoot);
                 BangBang();
             }
         }
