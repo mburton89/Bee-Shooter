@@ -1165,6 +1165,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 069b2ac1ed709984f9551e362ee21f39, type: 3}
   - soundName: 1004
     audioClip: {fileID: 8300000, guid: 9b9ea458eebd36a4fb5aaab5fbe33974, type: 3}
+  - soundName: 7
+    audioClip: {fileID: 8300000, guid: 55f3da11af5b81c4c906e3ec615c7694, type: 3}
   sfxLibrary:
   - soundName: 0
     audioClip: {fileID: 8300000, guid: 6750a8995c609f64d8483cb14b7716c5, type: 3}
