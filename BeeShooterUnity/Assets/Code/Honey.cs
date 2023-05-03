@@ -11,9 +11,20 @@ public class Honey : MonoBehaviour
     public float flowerScaleSize;
     public float scaleChangeValue;
 
+    public List<SoundName> slurpSounds;
+
     private void Start()
     {
         playerShip = FindObjectOfType<PlayerShip>();
+
+        if (slurpSounds.Count == 0)
+        {
+            slurpSounds.Add(SoundName.Slurp1);
+            slurpSounds.Add(SoundName.Slurp2);
+            slurpSounds.Add(SoundName.Slurp3);
+            slurpSounds.Add(SoundName.Slurp4);
+            slurpSounds.Add(SoundName.Slurp5);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +50,11 @@ public class Honey : MonoBehaviour
         for (int i = usesLeft; i > 0; i--)
         {
             print("Refill for loop");
+
+            if (slurpSounds.Count > 0)
+            {
+                SoundManager.Instance.PlaySFXOnce(slurpSounds[Random.Range(0,slurpSounds.Count)]);
+            }
             playerShip.currentArmor += 1;
             usesLeft -= 1;
             flowerScaleSize -= scaleChangeValue;
