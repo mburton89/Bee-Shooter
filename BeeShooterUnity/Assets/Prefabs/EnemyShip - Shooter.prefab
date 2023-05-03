@@ -5081,20 +5081,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fdf590a75f04c48a2e20743bc8302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6844269080511706089, guid: 54028f3d59ac37c4b83e30e1e7f815f9, type: 3}
   projectilePrefab: {fileID: 3411194182385784368, guid: da7fa319bbd01dd43a500f4991cba203, type: 3}
-  projectileSpawnpoint: {fileID: 6844269079698289182, guid: 54028f3d59ac37c4b83e30e1e7f815f9, type: 3}
-  acceleration: 1
-  maxSpeed: 2
-  maxArmor: 2
+  projectileSpawnpoint: {fileID: 3839687136694837675}
+  acceleration: 3
+  maxSpeed: 6
+  maxArmor: 3
   fireRate: 1
-  projectileSpeed: 65
-  currentAmmo: 10
-  maxAmmo: 0
+  projectileSpeed: 160
+  currentAmmo: 10000000
+  maxAmmo: 10000000
   refillAmount: 0
   currentSpeed: 0
   currentArmor: 0
-  canBangBang: 0
+  canBangBang: 1
+  sightDistance: 10
 --- !u!70 &663575724
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

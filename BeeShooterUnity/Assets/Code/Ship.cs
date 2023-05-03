@@ -21,7 +21,7 @@ public class Ship : MonoBehaviour
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
 
-    [HideInInspector] public bool canBangBang;
+    public bool canBangBang;
     ParticleSystem thrustParticles;
 
     private void Awake()
@@ -29,7 +29,7 @@ public class Ship : MonoBehaviour
         currentArmor = maxArmor;
         currentAmmo = maxAmmo;
         thrustParticles = GetComponentInChildren<ParticleSystem>();
-        canBangBang = true;
+        //canBangBang = true;
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -61,9 +61,6 @@ public class Ship : MonoBehaviour
             Destroy(projectile, 4);
             StartCoroutine(FireRateBuffer());
         }
-      
-        
-
     }
     private IEnumerator FireRateBuffer()
     {
@@ -88,7 +85,7 @@ public class Ship : MonoBehaviour
     {// todo: Make particle effects
         Instantiate(Resources.Load("BOOM BOOM"), transform.position, transform.rotation);
         ScreenShakeManager.Instance.ShakeScreen();
-        FindObjectOfType<EnemySpawner>().CountEnemyShips();
+        //FindObjectOfType<EnemySpawner>().CountEnemyShips();
         Destroy(gameObject);
 
         if (GetComponent<PlayerShip>())
@@ -96,8 +93,6 @@ public class Ship : MonoBehaviour
             GameManager.Instance.GameOver();
         }
  
-    }
-
- 
-    }
+    } 
+}
 

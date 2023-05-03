@@ -31,7 +31,8 @@ public class BeeSpawner : MonoBehaviour
         for (int i = 0; i < numberOfBeesToSpawn; i++)
         {
             int rand = Random.Range(0, enemyBeeBeefabs.Count);
-            Instantiate(enemyBeeBeefabs[rand], transform.position, transform.rotation, null);
+            EnemyShip newBee = Instantiate(enemyBeeBeefabs[rand], transform.position, transform.rotation, null);
+            newBee.sightDistance = 50;
             yield return new WaitForSeconds(secondsBeetweenBeeSpawns);
         }
 

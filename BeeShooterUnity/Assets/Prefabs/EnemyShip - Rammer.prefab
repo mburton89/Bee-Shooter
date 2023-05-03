@@ -362,20 +362,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fdf590a75f04c48a2e20743bc8302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1693026615323117732, guid: a8e5424b6c3955842b7aa3698d37d078, type: 3}
   projectilePrefab: {fileID: 3411194182385784368, guid: da7fa319bbd01dd43a500f4991cba203, type: 3}
-  projectileSpawnpoint: {fileID: 1693026615323117738, guid: a8e5424b6c3955842b7aa3698d37d078, type: 3}
-  acceleration: 1
-  maxSpeed: 2
+  projectileSpawnpoint: {fileID: 3472790250054849957}
+  acceleration: 3.25
+  maxSpeed: 14
   maxArmor: 2
   fireRate: 100
   projectileSpeed: 0
-  currentAmmo: 10
+  currentAmmo: 0
   maxAmmo: 0
   refillAmount: 0
   currentSpeed: 0
   currentArmor: 0
   canBangBang: 0
+  sightDistance: 10
 --- !u!70 &592441305
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

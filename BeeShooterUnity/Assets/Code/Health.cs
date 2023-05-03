@@ -8,13 +8,10 @@ public class Health : MonoBehaviour
     [HideInInspector] public int currentHealth;
 
     SpriteRenderer spriteRenderer;
-    Material initialMaterial;
-    [SerializeField] Material whiteMaterial;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        initialMaterial = spriteRenderer.material;
         currentHealth = maxHealth;
     }
 
@@ -22,23 +19,38 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageToTake;
         Flash();
+        
 
         if (currentHealth <= 0)
         {
             Explode();
         }
+        else
+        {
+            Drill drill = GetComponent<Drill>();
+            if (drill != null)
+            {   
+                drill.HandleMusic();
+            }
+
+            DrillBase drillBase = GetComponent<DrillBase>();
+            if (drillBase != null)
+            {
+                drillBase.HandleMusic();
+            }
+        }
     }
 
     public void Flash()
     {
-        StartCoroutine(FlashCo());
+            StartCoroutine(FlashCo());
     }
 
     private IEnumerator FlashCo()
     {
-        spriteRenderer.material = whiteMaterial;
-        yield return new WaitForSeconds(.02f);
-        spriteRenderer.material = initialMaterial;
+        spriteRenderer.color = new Color(.42f, .14f, .78f);
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
     }
 
     public void Explode()
@@ -47,6 +59,6 @@ public class Health : MonoBehaviour
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
         Destroy(gameObject);
 
-        FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
+        //FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
     }
 }

@@ -241,6 +241,7 @@ public class SoundManager : MonoBehaviour {
         if (keepTimeIndex)
         {
             SwapAtClipSameTimeIndex ();
+            
         }
         else
         {

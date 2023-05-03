@@ -6,7 +6,7 @@ public class EnemyShip : Ship
 {
     Transform target;
 
-
+    public float sightDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +24,19 @@ public class EnemyShip : Ship
     // Update is called once per frame
     void Update()
     {
-        FlyForwardTarget();
-        if (canBangBang)
+        if (target == null) return;
+
+        float distanceFromTarget = Vector3.Distance(transform.position, target.transform.position);
+
+        //print(distanceFromTarget);
+
+        if (distanceFromTarget < sightDistance)
         {
-            BangBang();
+            FlyForwardTarget();
+            if (canBangBang)
+            {
+                BangBang();
+            }
         }
     }
     void FlyForwardTarget()
@@ -37,6 +46,4 @@ public class EnemyShip : Ship
         transform.up = directionToFace;
         Thrust();
     }
-    
-
-    }
+}

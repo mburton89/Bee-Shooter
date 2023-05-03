@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     public static HUD Instance { get; private set; }
-    public TextMeshProUGUI waveText;
     public Image healthBarFill;
     public Image ammoFill;
 
@@ -30,7 +29,6 @@ public class HUD : MonoBehaviour
 
     public void DisplayWave(int currentWave)
     {
-        waveText.SetText("Wave: " + currentWave);
 
     }
 }
