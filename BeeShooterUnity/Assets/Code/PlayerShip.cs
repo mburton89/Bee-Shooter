@@ -23,6 +23,11 @@ public class PlayerShip : Ship
             BangBang();
           
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+           win();
+        }
         
     }
 
