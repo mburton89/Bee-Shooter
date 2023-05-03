@@ -7,18 +7,20 @@ public class Honey : MonoBehaviour
     float changePerSecond; //how much we add per second while player is on flower (may change later)
 
     PlayerShip playerShip;
-    public int usesLeft = 8;
+    public int maxUses = 8;
+    int usesLeft;
     public float flowerScaleSize;
     public float scaleChangeValue;
 
     private void Start()
     {
         playerShip = FindObjectOfType<PlayerShip>();
+        usesLeft = maxUses;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerShip>() && collision.gameObject.GetComponent<PlayerShip>().currentArmor < 10)
+        if (collision.gameObject.GetComponent<PlayerShip>() && collision.gameObject.GetComponent<PlayerShip>().currentArmor < playerShip.maxArmor)
         {
             StartCoroutine("Heal");
         }
@@ -36,13 +38,13 @@ public class Honey : MonoBehaviour
         Vector3 originalScale = transform.localScale;
 
         print("Heal");
-        for (int i = usesLeft; i > 0; i--)
+        for (int i = 0; i < usesLeft; i++)
         {
             print("Refill for loop");
             playerShip.currentArmor += 1;
             usesLeft -= 1;
-            flowerScaleSize -= scaleChangeValue;
-            transform.localScale = new Vector3(originalScale.x * flowerScaleSize, originalScale.y * flowerScaleSize, originalScale.z * flowerScaleSize);
+            flowerScaleSize = (float)usesLeft / (float)maxUses;
+            transform.localScale = new Vector3(flowerScaleSize, flowerScaleSize, flowerScaleSize);
             //theHoney.transform.localScale *= flowerScaleSize;
 
             HUD.Instance.DisplayHealth(playerShip.currentArmor, playerShip.maxArmor);
