@@ -532,19 +532,31 @@ public enum SoundType
 [System.Serializable]
 public enum SoundName
 {
-    Buzz = 0,
-    Shoot = 1,
-    HoneySlurp = 2,
-    Drill = 3,
+    BuzzAmbient = 0,
+    PlayerShoot = 1,
+    EnemyHit1 =2,
+    DrillAmbient = 3,
     DroneBee = 4,
     EnemyShoot = 5,
     ClawSnap = 6,
     PlayerDies = 7,
-    PlayerHit = 8,
     EnemyDies = 9,
-    EnemyHit = 10,
+    EnemyHit2 = 10,
     DrillDestroyed = 11,
-    OtherExplosion = 12,
+    ClawExplosion = 12,
+    PlayerHit1 = 13,
+    PlayerHit2 = 14,
+    PlayerHit3 = 15,
+    Slurp1 = 16,
+    Slurp2 = 17,
+    Slurp3 = 18,
+    Slurp4 = 19,
+    Slurp5 = 20,
+    ClawShoot = 22,
+    PollenGather = 23,
+    PollenFull = 24,
+
+
 
     UIConfirm = 101,
     UISelection = 102,
