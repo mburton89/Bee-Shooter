@@ -706,9 +706,10 @@ GameObject:
   m_Component:
   - component: {fileID: 682914629004263152}
   - component: {fileID: 682914629004263153}
-  - component: {fileID: 682914629004263154}
   - component: {fileID: 682914629004263155}
   - component: {fileID: 882613491}
+  - component: {fileID: 215826500}
+  - component: {fileID: 215826505}
   m_Layer: 0
   m_Name: Drill
   m_TagString: Drill
@@ -788,22 +789,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &682914629004263154
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682914629004263166}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.04, y: 0.65}
-  m_Direction: 1
 --- !u!114 &682914629004263155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +816,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drillDamagedMusicDistortTime: 0.75
+--- !u!61 &215826500
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682914629004263166}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.72}
+  m_EdgeRadius: 0
+--- !u!114 &215826505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682914629004263166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1aa3a5e6c46a844cbf36cb18aaca643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &682914629734908491
 GameObject:
   m_ObjectHideFlags: 0

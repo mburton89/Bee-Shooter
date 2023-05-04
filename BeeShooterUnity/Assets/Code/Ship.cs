@@ -76,6 +76,8 @@ public class Ship : MonoBehaviour
         currentArmor -= DamageToGive;
         if (currentArmor <= 0)
         {
+            Explode();
+
             if (this.GetType() == typeof(PlayerShip))
             {
                 SoundManager.Instance.PlaySFXOnce(SoundName.PlayerDies);
@@ -84,8 +86,6 @@ public class Ship : MonoBehaviour
             {
                 SoundManager.Instance.PlaySFXOnce(SoundName.EnemyDies);
             }
-
-            Explode();
         }
         
 
@@ -125,13 +125,15 @@ public class Ship : MonoBehaviour
 
     IEnumerator DelayGameOver()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         GetComponent<PlayerShip>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        FindObjectOfType<CameraFollowPlayer>().enabled = false;
 
         AudioClip clip = SoundManager.Instance.GetBGMClip(SoundName.PlayerDies);
         SoundManager.Instance.PlayMainMusic(SoundName.PlayerDies);
 
-        yield return new WaitForSeconds(clip.length + 1f);
+        yield return new WaitForSeconds(clip.length - 1);
 
         GameManager.Instance.GameOver();
     }

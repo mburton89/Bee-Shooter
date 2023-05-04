@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlowerRefillAmmo : MonoBehaviour
 {
-    float changePerSecond; //how much we add per second while player is on flower (may change later)
+    public float changePerSecond; //how much we add per second while player is on flower (may change later)
 
     PlayerShip playerShip;
 
@@ -15,7 +15,7 @@ public class FlowerRefillAmmo : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerShip>() && collision.gameObject.GetComponent<PlayerShip>().currentAmmo < 10)
+        if (collision.gameObject.GetComponent<PlayerShip>() && collision.gameObject.GetComponent<PlayerShip>().currentAmmo < playerShip.maxAmmo)
         {
             StartCoroutine("Refill");
         }
@@ -30,9 +30,8 @@ public class FlowerRefillAmmo : MonoBehaviour
     IEnumerator Refill()
     {
         print("Refill");
-        for (int i = playerShip.currentAmmo; playerShip.currentAmmo <= 10; i++)
+        for (int i = playerShip.currentAmmo; playerShip.currentAmmo <= playerShip.maxAmmo; i++)
         {
-            print("Refill for loop");
             playerShip.currentAmmo += 1;
 
             if (playerShip.currentAmmo >= playerShip.maxAmmo)
@@ -45,7 +44,7 @@ public class FlowerRefillAmmo : MonoBehaviour
             }
 
             HUD.Instance.DisplayAmmo(playerShip.currentAmmo, playerShip.maxAmmo);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(changePerSecond);
         }
     }
 }
