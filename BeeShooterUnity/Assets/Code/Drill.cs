@@ -29,7 +29,7 @@ public class Drill : MonoBehaviour
     {
         if (SoundManager.Instance != null)
         {
-            SoundManager.Instance.PlaySFXOnce(SoundName.DrillAmbient, transform.position);
+            //SoundManager.Instance.PlaySFXOnce(SoundName.DrillAmbient, transform.position);
         }
 
         yield return new WaitForSeconds(secondsToDelay);
