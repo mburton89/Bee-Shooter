@@ -17,6 +17,7 @@ public class Ship : MonoBehaviour
     public int currentAmmo = 10;
     public int maxAmmo;
     public int refillAmount;
+    public string autoWinKey;
 
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
@@ -46,6 +47,10 @@ public class Ship : MonoBehaviour
         thrustParticles.Emit(1);
     }
 
+    public void win()
+    {
+        GameManager.Instance.winGame();
+    }
     public void BangBang()
     {
         if (canBangBang && currentAmmo > 0) //and ammo amount is more than 0

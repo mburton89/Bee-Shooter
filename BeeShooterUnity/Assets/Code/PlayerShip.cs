@@ -41,6 +41,11 @@ public class PlayerShip : Ship
             SoundManager.Instance.PlaySFXOnce(SoundName.PlayerShoot, transform.position);
             BangBang();
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+           win();
+        }
         
     }
 
