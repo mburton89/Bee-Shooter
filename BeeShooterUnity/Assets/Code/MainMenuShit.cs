@@ -8,9 +8,16 @@ public class MainMenuShit : MonoBehaviour
     public string TheGame;
     public string Credits;
 
+    public string Menu;
+
     public void StartGame()
     {
         SceneManager.LoadScene(TheGame);
+    }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene(Menu);
     }
 
     public void QuitGame()
@@ -22,4 +29,11 @@ public class MainMenuShit : MonoBehaviour
     {
         //SceneManager.LoadScene(Credits); MAKE ACTIVE ONCE WE HAVE A CREDITS SCENE
     }
+
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 }

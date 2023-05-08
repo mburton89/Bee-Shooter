@@ -32,8 +32,17 @@ public class FlowerRefillAmmo : MonoBehaviour
         print("Refill");
         for (int i = playerShip.currentAmmo; playerShip.currentAmmo <= playerShip.maxAmmo; i++)
         {
-            print("Refill for loop");
             playerShip.currentAmmo += 1;
+
+            if (playerShip.currentAmmo >= playerShip.maxAmmo)
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.PollenFull, transform.position);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.PollenGather, transform.position);
+            }
+
             HUD.Instance.DisplayAmmo(playerShip.currentAmmo, playerShip.maxAmmo);
             yield return new WaitForSeconds(changePerSecond);
         }

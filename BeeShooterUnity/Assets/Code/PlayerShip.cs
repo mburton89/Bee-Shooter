@@ -9,6 +9,9 @@ public class PlayerShip : Ship
     public string battleMusicObjectTag;
     public Animator animator;
 
+    public float idleAnimSpeed;
+    public float flyingAnimSpeed;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,12 +23,12 @@ public class PlayerShip : Ship
     {
         if (Input.GetMouseButtonDown(1))
         {
-            animator.speed *= 2;
+            animator.speed = flyingAnimSpeed;
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            animator.speed *= 0.5f;
+            animator.speed = idleAnimSpeed;
         }
 
         if (Input.GetMouseButton(1))
@@ -35,7 +38,13 @@ public class PlayerShip : Ship
 
         if (Input.GetMouseButtonDown(0))
         {
+            SoundManager.Instance.PlaySFXOnce(SoundName.PlayerShoot, transform.position);
             BangBang();
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+           win();
         }
         
     }

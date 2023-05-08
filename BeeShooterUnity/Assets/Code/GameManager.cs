@@ -19,5 +19,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
+        LevelManager.instance.GameOver();
+    }
+
+    public void winGame()
+    {
+        LevelManager.instance.gameDone();
     }
 }

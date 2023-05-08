@@ -17,6 +17,7 @@ public class Ship : MonoBehaviour
     public int currentAmmo = 10;
     public int maxAmmo;
     public int refillAmount;
+    public string autoWinKey;
 
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
@@ -46,6 +47,10 @@ public class Ship : MonoBehaviour
         thrustParticles.Emit(1);
     }
 
+    public void win()
+    {
+        GameManager.Instance.winGame();
+    }
     public void BangBang()
     {
         if (canBangBang && currentAmmo > 0) //and ammo amount is more than 0
@@ -71,28 +76,72 @@ public class Ship : MonoBehaviour
     }
     public void TakeDamage(int DamageToGive)
     {
+        List<SoundName> hitSounds = new List<SoundName>();
+
         currentArmor -= DamageToGive;
         if (currentArmor <= 0)
         {
             Explode();
+
+            if (this.GetType() == typeof(PlayerShip))
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.PlayerDies, transform.position);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySFXOnce(SoundName.EnemyDies, transform.position);
+            }
         }
+        
+
         if(GetComponent<PlayerShip>())
         {
             HUD.Instance.DisplayHealth(currentArmor, maxArmor);
+
+            hitSounds.Add(SoundName.PlayerHit1);
+            hitSounds.Add(SoundName.PlayerHit2);
+            hitSounds.Add(SoundName.PlayerHit3);
         }
+        else
+        {
+            hitSounds.Add(SoundName.EnemyHit1);
+            hitSounds.Add(SoundName.EnemyHit2);
+        }
+
+        SoundManager.Instance.PlaySFXOnce(hitSounds[Random.Range(0, hitSounds.Count)]);
     }
     public void Explode()
     {// todo: Make particle effects
         Instantiate(Resources.Load("BOOM BOOM"), transform.position, transform.rotation);
         ScreenShakeManager.Instance.ShakeScreen();
         //FindObjectOfType<EnemySpawner>().CountEnemyShips();
-        Destroy(gameObject);
+        
 
         if (GetComponent<PlayerShip>())
         {
-            GameManager.Instance.GameOver();
+            StartCoroutine(DelayGameOver());
+        }
+        else
+        {
+            Destroy(gameObject);
         }
  
-    } 
+    }
+
+    IEnumerator DelayGameOver()
+    {
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        GetComponent<PlayerShip>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        FindObjectOfType<CameraFollowPlayer>().enabled = false;
+
+        AudioClip clip = SoundManager.Instance.GetBGMClip(SoundName.PlayerDies);
+        SoundManager.Instance.PlayMainMusic(SoundName.PlayerDies);
+        SoundManager.Instance.bgmMusicManager.loop = false;
+        yield return new WaitForSeconds(clip.length - 1);
+
+        GameManager.Instance.GameOver();
+    }
+
 }
 
