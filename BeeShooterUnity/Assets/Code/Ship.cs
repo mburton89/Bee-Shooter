@@ -80,11 +80,11 @@ public class Ship : MonoBehaviour
 
             if (this.GetType() == typeof(PlayerShip))
             {
-                SoundManager.Instance.PlaySFXOnce(SoundName.PlayerDies);
+                SoundManager.Instance.PlaySFXOnce(SoundName.PlayerDies, transform.position);
             }
             else
             {
-                SoundManager.Instance.PlaySFXOnce(SoundName.EnemyDies);
+                SoundManager.Instance.PlaySFXOnce(SoundName.EnemyDies, transform.position);
             }
         }
         
@@ -132,7 +132,7 @@ public class Ship : MonoBehaviour
 
         AudioClip clip = SoundManager.Instance.GetBGMClip(SoundName.PlayerDies);
         SoundManager.Instance.PlayMainMusic(SoundName.PlayerDies);
-
+        SoundManager.Instance.bgmMusicManager.loop = false;
         yield return new WaitForSeconds(clip.length - 1);
 
         GameManager.Instance.GameOver();

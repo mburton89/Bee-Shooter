@@ -28,11 +28,11 @@ public class Health : MonoBehaviour
         {
             if (drill != null || drillBase != null)
             {
-                SoundManager.Instance.PlaySFXOnce(SoundName.DrillDestroyed);
+                SoundManager.Instance.PlaySFXOnce(SoundName.DrillDestroyed, transform.position);
             }
             else
             {
-                SoundManager.Instance.PlaySFXOnce(SoundName.ClawExplosion);
+                SoundManager.Instance.PlaySFXOnce(SoundName.ClawExplosion, transform.position);
             }
 
             Explode();

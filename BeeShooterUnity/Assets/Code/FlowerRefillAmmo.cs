@@ -36,11 +36,11 @@ public class FlowerRefillAmmo : MonoBehaviour
 
             if (playerShip.currentAmmo >= playerShip.maxAmmo)
             {
-                SoundManager.Instance.PlaySFXOnce(SoundName.PollenFull);
+                SoundManager.Instance.PlaySFXOnce(SoundName.PollenFull, transform.position);
             }
             else
             {
-                SoundManager.Instance.PlaySFXOnce(SoundName.PollenGather);
+                SoundManager.Instance.PlaySFXOnce(SoundName.PollenGather, transform.position);
             }
 
             HUD.Instance.DisplayAmmo(playerShip.currentAmmo, playerShip.maxAmmo);

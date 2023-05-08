@@ -6,12 +6,12 @@ public class Projectile : MonoBehaviour
 {
     public int damageToGive;
     [HideInInspector]public GameObject firingShip;
-    public SoundName soundOnFire;
-    public SoundName soundOnHit;
+    //public SoundName soundOnFire;
+    //public SoundName soundOnHit;
 
     void Awake()
     {
-        SoundManager.Instance.PlaySFXOnce(soundOnFire, transform.position);
+        //SoundManager.Instance.PlaySFXOnce(soundOnFire, transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
             collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);
 
-            SoundManager.Instance.PlaySFXOnce(soundOnHit, transform.position);
+            //SoundManager.Instance.PlaySFXOnce(soundOnHit, transform.position);
 
         }
 
