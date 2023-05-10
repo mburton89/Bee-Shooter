@@ -25,6 +25,8 @@ public class Ship : MonoBehaviour
     public bool canBangBang;
     ParticleSystem thrustParticles;
 
+    SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
         currentArmor = maxArmor;
@@ -33,6 +35,7 @@ public class Ship : MonoBehaviour
         //canBangBang = true;
 
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     private void FixedUpdate()
     {
@@ -109,6 +112,8 @@ public class Ship : MonoBehaviour
         }
 
         SoundManager.Instance.PlaySFXOnce(hitSounds[Random.Range(0, hitSounds.Count)]);
+
+        Flash();
     }
     public void Explode()
     {// todo: Make particle effects
@@ -143,5 +148,16 @@ public class Ship : MonoBehaviour
         GameManager.Instance.GameOver();
     }
 
+    public void Flash()
+    {
+        StartCoroutine(FlashCo());
+    }
+
+    private IEnumerator FlashCo()
+    {
+        spriteRenderer.color = new Color(.42f, .14f, .78f);
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+    }
 }
 

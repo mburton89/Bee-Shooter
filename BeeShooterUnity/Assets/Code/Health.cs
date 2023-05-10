@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
 
     public void Flash()
     {
-            StartCoroutine(FlashCo());
+        StartCoroutine(FlashCo());
     }
 
     private IEnumerator FlashCo()
