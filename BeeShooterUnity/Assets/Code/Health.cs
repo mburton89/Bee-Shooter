@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int maxHealth;
-    [HideInInspector] public int currentHealth;
+     public int currentHealth;
 
     SpriteRenderer spriteRenderer;
     void Awake()

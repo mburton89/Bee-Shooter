@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 882613491}
   - component: {fileID: 215826500}
   - component: {fileID: 215826505}
+  - component: {fileID: 1052494396}
   m_Layer: 0
   m_Name: Drill
   m_TagString: Drill
@@ -854,6 +855,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1aa3a5e6c46a844cbf36cb18aaca643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1052494396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682914629004263166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8781925441a7c4fb99744a24ddd85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drillDamagedMusicDistortTime: 0.75
 --- !u!1 &682914629734908491
 GameObject:
   m_ObjectHideFlags: 0

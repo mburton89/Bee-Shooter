@@ -21,8 +21,6 @@ public class Claw : MonoBehaviour
     void Start()
     {
         StartCoroutine(RotateCo());
-        StartCoroutine(FireProjectiles());
-        
     }
 
     private IEnumerator RotateCo()
@@ -48,14 +46,5 @@ public class Claw : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         StartCoroutine(RotateCo());
-    }
-
-    private IEnumerator FireProjectiles()
-    {
-
-
-
-        yield return new WaitForSeconds(fireRate);
-        StartCoroutine(FireProjectiles());
     }
 }

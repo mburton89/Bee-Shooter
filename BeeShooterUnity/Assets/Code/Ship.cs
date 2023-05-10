@@ -117,17 +117,19 @@ public class Ship : MonoBehaviour
     }
     public void Explode()
     {// todo: Make particle effects
-        Instantiate(Resources.Load("BOOM BOOM"), transform.position, transform.rotation);
+        
         ScreenShakeManager.Instance.ShakeScreen();
         //FindObjectOfType<EnemySpawner>().CountEnemyShips();
         
 
         if (GetComponent<PlayerShip>())
         {
+            Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
             StartCoroutine(DelayGameOver());
         }
         else
         {
+            Instantiate(Resources.Load("BOOM BOOM"), transform.position, transform.rotation);
             Destroy(gameObject);
         }
  

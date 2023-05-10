@@ -10,6 +10,8 @@ public class MainMenuShit : MonoBehaviour
 
     public string Menu;
 
+    public GameObject creditsScreen;
+
     public void StartGame()
     {
         SceneManager.LoadScene(TheGame);
@@ -27,7 +29,7 @@ public class MainMenuShit : MonoBehaviour
 
     public void OpenCredits()
     {
-        //SceneManager.LoadScene(Credits); MAKE ACTIVE ONCE WE HAVE A CREDITS SCENE
+        creditsScreen.transform.localScale = Vector3.one;
     }
 
 

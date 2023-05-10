@@ -4942,10 +4942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39888fd6d297fdc46bbec5b840f60188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 1
+  damageToGive: 1000000
   firingShip: {fileID: 0}
-  soundOnFire: 1
-  soundOnHit: 10
 --- !u!58 &1565125176679942561
 CircleCollider2D:
   m_ObjectHideFlags: 0
