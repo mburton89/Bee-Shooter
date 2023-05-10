@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-
+    int i = 1;
 
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
         if (_ui != null)
         {
             _ui.ToggleWinPanel();
+
         }
     }
 

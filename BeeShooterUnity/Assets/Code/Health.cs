@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
     [HideInInspector] public int currentHealth;
 
     SpriteRenderer spriteRenderer;
-
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();

@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public bool isGameWon = false;
+    public PlayerShip PlayerShip;
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void Start()
+    {
+        isGameWon = false;
     }
     public void GameOver()
     {
@@ -17,13 +23,19 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator DelayGameOver()
     {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(1);
         LevelManager.instance.GameOver();
     }
 
     public void winGame()
     {
-        LevelManager.instance.gameDone();
+        if (isGameWon == false)
+        {
+            LevelManager.instance.gameDone();
+            isGameWon = true;
+            PlayerShip.GetComponent<CapsuleCollider2D>().enabled = false;
+        }
+        
+
     }
 }

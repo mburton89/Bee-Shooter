@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
 
     public void ToggleWinPanel()
     {
+        
        winPanel.SetActive(!winPanel.activeSelf);
+
     }
 }
