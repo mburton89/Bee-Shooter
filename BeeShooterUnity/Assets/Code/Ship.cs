@@ -13,16 +13,13 @@ public class Ship : MonoBehaviour
     public int maxArmor;
     public float fireRate;
     public float projectileSpeed;
-<<<<<<< Updated upstream
+
     public int currentAmmo;
     public int MaxAmmo;
-=======
-    public int currentAmmo = 10;
+    public int currentAmmo;
     public int maxAmmo;
     public int refillAmount;
     public string autoWinKey;
-
->>>>>>> Stashed changes
 
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;

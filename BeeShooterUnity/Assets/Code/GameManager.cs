@@ -18,16 +18,13 @@ public class GameManager : MonoBehaviour
     private IEnumerator DelayGameOver()
     {
         yield return new WaitForSeconds(3);
-<<<<<<< Updated upstream
-        SceneManager.LoadScene(0);
 
-=======
+        SceneManager.LoadScene(0);
         LevelManager.instance.GameOver();
     }
 
     public void winGame()
     {
         LevelManager.instance.gameDone();
->>>>>>> Stashed changes
     }
 }
